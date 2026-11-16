@@ -27,6 +27,8 @@ Run `scripts/lint.py` (and `scripts/binding.py` where spaCy is available) first,
 22. **Unannotated master equations** (technical). When a central equation is a product or sum of distinct pieces the text then discusses one by one, label the pieces in the display (underbraces, one or two words each). Only for the few organising equations.
 23. **Unbound reference and deep parse.** See below; no word list catches it.
 24. **Clefts, emphatics, double negatives.** Clefts and pseudo-clefts ("What X needs is Y", "What remains is …"): say it directly. Sentence-final emphatics ("… at all.", "… on its own.", "… in its own right."). Double negatives ("not unlike", "not without").
+25. **Presupposition without context.** See Discourse below.
+26. **Moves that answer no open question.** See Discourse below.
 
 ## Pattern 23: sentence construction
 The most damaging machine construction: every word can be plain and every sentence short while the paragraph is still hard to read. A reader builds one parse per sentence and links each referring expression to one antecedent; machine prose makes the reader hold several unresolved pointers or reparse after a wrong first parse. Review it as syntax: for each sentence, find every pointer, what it resolves to, and where the parse is fixed. Target: each sentence parses in one pass, and each pointer has exactly one antecedent, written as a noun phrase, in the same or the previous sentence.
@@ -67,6 +69,22 @@ After: "Collisions between the two molecules have enough energy for the reaction
 
 Writer rule: after drafting a paragraph, list each sentence's pointers and antecedents; rewrite any pointer with zero or several candidates. Reviewer rule: read the paragraph whole (binding crosses sentence boundaries) and report the pointer, its candidates and the rewrite.
 
+## Discourse
+A reader tracks what is already established, what is under discussion, and which question is open. Patterns 25 and 26 fail that model the way pattern 23 fails the parse.
+
+**25. Presupposition without context.** Some constructions presuppose a state of the discussion, and the reader must invent that state when the text has not created it.
+- Negation and contrast ("not X but Y", "X, not Y", "rather than X", "however") presuppose that X was expected or asserted. Keep one only where the reader could actually have assumed X; otherwise state Y.
+- Clefts ("What X needs is Y", "It is Y that …") presuppose that "X needs something" is already the open question. Use one only to answer a question the text has raised.
+- "Again", "still", "also", "even", "only" presuppose an earlier event, state, member or expectation. Check that it is in the text.
+- Definite noun phrases and pronouns presuppose a familiar referent (pattern 23).
+- Check: for each trigger, name the sentence that established what it presupposes. If there is none, rewrite positively or introduce the presupposed content first.
+
+**26. Moves that answer no open question.** Each paragraph answers a question the reader has at that point, or raises one they will want answered next.
+- Write down the implicit question each paragraph answers. Cut a paragraph that answers none (generic framing), one already answered (restatement, pattern 18), or one about the text instead of the subject (self-narration, pattern 2).
+- A question raised (a count-teaser, a roadmap, a problem statement) is answered promptly, in the order raised.
+- Order paragraphs so that each one's question arises from the previous answer. A paragraph whose question nobody would ask yet belongs later, or after the paragraph that makes it pressing.
+- Connectives name the relation the reader would infer: "so" only for a consequence, "but" and "however" only for a real contrast, "for example" only for an instance of the claim just made.
+
 ## Register
 The text reads as a practitioner explaining the subject to a colleague in the venue's own voice. For substantial work, name one to three human-written models known for clear writing in the field and venue. Distil their usage into a register note: terms of art, characteristic phrasings, how estimates and pictures are introduced, sentence rhythm, a few example sentences, connective frequencies.
 - Use the field's terms in the field's sense; coin nothing that has a name. If a forced symbol or term is non-standard, say once what others write.
@@ -90,4 +108,4 @@ The text reads as a practitioner explaining the subject to a colleague in the ve
 - Intuition accompanies formal results and never replaces a derivation.
 
 ## Report
-Table: location | pattern | text | rewrite (for pattern 23, also the pointer and its candidates). Verdict: PASS (at most 3 minor hits per 1,000 words), REVISE, or REWRITE (systemic voice problems).
+Table: location | pattern | text | rewrite (for pattern 23, also the pointer and its candidates; for 25, the presupposition and where it is, or is not, established; for 26, the question the paragraph answers). Verdict: PASS (at most 3 minor hits per 1,000 words), REVISE, or REWRITE (systemic voice problems).

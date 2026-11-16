@@ -24,7 +24,7 @@ One context: a message up to a few thousand words.
 1. Fix reader, purpose and venue (rules 1, 10).
 2. Outline as the ordered list of facts the reader must leave with.
 3. Draft.
-4. Revise: deletion test per sentence; list the new fact in each paragraph and cut repeats; list each sentence's pointers and antecedents; check `references/prose.md`; run the lint (and `binding.py` on longer texts).
+4. Revise: deletion test per sentence; list the new fact in each paragraph and cut repeats; list each sentence's pointers and antecedents; name the question each paragraph answers and the context each negation or cleft presupposes; check `references/prose.md`; run the lint (and `binding.py` on longer texts).
 5. When the text matters, have a fresh agent that sees only the text and the persona read it cold (`references/reader-review.md`). Fix every point where it got lost.
 
 ## Language-only edits
