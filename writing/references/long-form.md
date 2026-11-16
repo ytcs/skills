@@ -41,7 +41,7 @@ Sections whose prerequisites are accepted may run in parallel; keep concurrent w
 |---|---|---|---|
 | 1 Brief | editor | SPINE, ledgers, predecessor SEAMS | briefs/<sec>.md |
 | 2 Draft | writer | brief, STYLE, REGISTER, NOTATION, GLOSSARY, predecessor SEAMS, sources | src/<sec>; SEAMS/<sec>.md with proposed ledger rows |
-| 3 Lint | script | src/<sec> | REVIEWS/<sec>/lint.txt (`lint.py --banned BANNED-TERMS.txt`) |
+| 3 Lint | script | src/<sec> | REVIEWS/<sec>/lint.txt (`lint.py --banned BANNED-TERMS.txt`, `binding.py`) |
 | 4 Derivation check (technical) | isolated verifier | src, cited sources, NOTATION | each equation CHECKED / WRONG / GAP |
 | 5 Prose | isolated reviewer | src, STYLE, REGISTER, prose.md | prose report |
 | 6 Cold readers | 2+ isolated personas | the text up to and including this section only | reader reports (reader-review.md) |
@@ -54,6 +54,13 @@ Sections whose prerequisites are accepted may run in parallel; keep concurrent w
 - Revisers fix a point in the text itself, never with a sentence announcing the fix (prose.md pattern 20).
 - Build every time: no undefined references, labels or citations.
 - A section resting on an unconfirmed result is BLOCKED in SPINE until the result clears.
+
+## Language rounds on existing text
+A pass that changes only the language follows SKILL.md "Language-only edits", scaled up:
+1. **Pilot:** edit one section yourself, have an independent agent review it, and put two or three of its before/after pairs (good and bad) into the editors' brief as calibration.
+2. **Editors** each take one unit (a chapter or a few) and read every paragraph whole. Each runs `content_guard.py <base> <files>`, the lint and a build, and logs the most instructive changes.
+3. **Independent reviewers**, who did not edit the unit, form their own view of the diff before reading the editor's log. They check every changed sentence for fidelity (claim, strength, qualifiers, facts), pattern 23 and over-repair, and sample at least one unchanged paragraph in ten for misses. A unit with more than 2 misses per 1,000 words gets a second pass.
+4. **Content problems** go through a written proposal and an independent review before they are applied.
 
 ## Cross-section reviews
 - **Seam:** after both sides are accepted, one agent reads the last third of section n, the first third of n+1 and both SEAMS: promises kept, nothing introduced twice, notation and tone continuous, natural transition.
@@ -92,7 +99,8 @@ Key results: derived here or cited (public source, location)
 Sources (for the writer only; never named in the text)
 Figures, tables, worked examples
 Constraints: STYLE, NOTATION, GLOSSARY authoritative; match REGISTER; propose new symbols and terms,
-  never invent silently; avoid BANNED-TERMS; show every step or move it to an appendix and point to it
+  never invent silently; avoid BANNED-TERMS; show every step or move it to an appendix and point to it;
+  every pointer has one antecedent noun phrase, one name per object (prose.md pattern 23)
 Deliverables: src/<sec> (builds in the master file); SEAMS/<sec>.md; proposed NOTATION, GLOSSARY,
   CONCEPTS, CLAIMS rows and index entries
 ```

@@ -25,6 +25,7 @@ Venue conventions override every item (publisher or journal author instructions,
 - Captions stand alone: what is shown, in what units, for which parameters.
 - Axis labels carry quantity and unit, using the text's symbols. Prefer vector graphics.
 - Every plotted or tabulated number traces to a script; code shown to readers runs as shown.
+- No float lands inside a boxed environment (worked example, key result) that breaks across pages: hold deferred floats while a box is set, and check each box's page span on every build.
 
 ## Citations and cross-references
 - One citation style throughout (numbered or author-year). Cite specific equations or sections: "[12, Eq. (5)]".
